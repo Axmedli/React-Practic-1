@@ -1,9 +1,13 @@
-import {useState, useEffect} from "react"
+import {useState} from "react"
+import { Link } from "react-router-dom"
+
 const Card = ({product}) => {
   const [count,setCount] = useState(0)
+  const isProduct=true
 
   return (
-      <div className="relative min-w-[300px] w-full border border-gray-300 p-4 rounded-lg shadow-lg">
+    <Link className="min-w-[300px] w-full" to={`/product-details/${product._id}`} state={{isProduct}}>
+          <div className="relative w-full h-full border border-gray-300 p-4 rounded-lg shadow-lg">
         <img className="w-full h-[200px] object-contain" src={product.image? product.image : product.images[0]} alt="" />
         <h2 className="text-2xl font-semibold mt-3">{product.title}</h2>
         <p className="my-4">{product.description}</p>
@@ -26,6 +30,7 @@ const Card = ({product}) => {
         
         </div>
       </div>
+    </Link>
   )
 }
 
