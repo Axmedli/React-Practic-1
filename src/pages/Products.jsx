@@ -1,11 +1,15 @@
 import Card from "../components/Card"
 import Loading from "../components/Loading"
 import {useState, useEffect} from "react"
+import { useDarkmode } from "../stores/darkmodeStore"
 
 const Products = () => {
+    const {isDarkmodeActive,toggleDarkmode} = useDarkmode()
     const [loading,setLoading] = useState(false)
     const [searchterm,setSearchterm] = useState("")
     const [products,setProducts] = useState([])
+
+
 
     const getProducts = async () => {
         try {
@@ -34,11 +38,13 @@ const Products = () => {
     }, [searchterm])
 
     return (
-        <>
-            <div className="w-full flex justify-center py-5">
+        <div className={`${isDarkmodeActive ? "bg-slate-900 text-white":"bg-white text-black"} transition-all duration-200`}> 
+
+            <div className="w-full flex justify-center py-5 gap-5">
                 <input className=" border border-zinc-300 p-3 min-w-[300px]" placeholder="Search for any product..." type="text" value={searchterm} onChange={(e)=>{
                 setSearchterm(e.target.value)
                 }} />
+                <button onClick={toggleDarkmode} className="bg-red-500 px-2 text-white cursor-pointer active:scale-95 transition-all duration-200">{isDarkmodeActive?"Disable" :"Enable"} Darkmode</button>
             </div>
             {
                 loading ? <Loading/>:
@@ -46,7 +52,8 @@ const Products = () => {
                     {products.map(product => <Card key={product._id} product={product}/>)}
                 </div>
             }
-        </>
+
+        </div>
     )
 }
 
