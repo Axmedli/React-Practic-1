@@ -31,7 +31,7 @@ const Products = () => {
         <div className={`${isDarkmodeActive ? "bg-slate-900 text-white" : "bg-white text-black"} transition-all duration-200`}>
             <h1>{t("hello")}</h1>
             <div className="w-full flex justify-center py-5 gap-3">
-                <input className={`border border-zinc-300 p-3 min-w-[300px]`} placeholder={t("search")} type="text" value={searchterm} onChange={(e) => {
+                <input className={`border border-zinc-300 p-3 min-w-[100px] w-[300px]`} placeholder={t("search")} type="text" value={searchterm} onChange={(e) => {
                     setSearchterm(e.target.value)
                 }} />
                 <button onClick={toggleDarkmode} className="bg-red-600 text-white px-2 hover:cursor-pointer hover:bg-red-700">{isDarkmodeActive ? t("disableDarkmode") : t("enableDarkmode")}</button>

@@ -13,7 +13,7 @@ const LanguageSelector = () => {
 
 
     return (
-        <select className={`${isDarkmodeActive ?"bg-slate-900 text-white  border-zinc-300" :""} "border  border-zinc-300 px-3 rounded-md"`} onChange={changeLanguage} value={i18n.language}>
+        <select className={`${isDarkmodeActive ?"bg-slate-900 text-white  border-zinc-300" :""} border border-zinc-300 px-3`} onChange={changeLanguage} value={i18n.language}>
             {languages.map(language => <option value={language.value}>
                 {language.title}
             </option>)}
