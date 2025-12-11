@@ -37,7 +37,7 @@ const Products = () => {
                 <button onClick={toggleDarkmode} className="bg-red-600 text-white px-2 hover:cursor-pointer hover:bg-red-700">{isDarkmodeActive ? t("disableDarkmode") : t("enableDarkmode")}</button>
                 <LanguageSelector/>
             </div>
-            <div className="w-full min-h-screen h-fit grid grid-cols-4 gap-5 p-5">
+            <div className="w-full min-h-screen h-fit grid  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-5">
                 {products.map(product => <Card key={product._id} product={product} />)}
             </div>
         </div>
